@@ -1,0 +1,1 @@
+el conteo de letras ignora los espacios , saltos de linea y ignora la puntuacion (cuenta los caracteres numericos)
