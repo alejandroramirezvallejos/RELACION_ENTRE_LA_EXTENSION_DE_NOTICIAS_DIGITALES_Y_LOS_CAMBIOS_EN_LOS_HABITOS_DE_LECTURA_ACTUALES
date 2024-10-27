@@ -10,7 +10,7 @@ void database_in (string basededatos);
 void database_out (int letras,int palabras,int oraciones ,string texto);
 string noticiero(string texto);
 bool idfechas(const string & text,int index);
-
+bool vacios(void);
 
 int main(){
   locale::global(locale(locale(), new codecvt_utf8<wchar_t>));
@@ -105,13 +105,21 @@ void database_out (int letras,int palabras,int oraciones,string texto){ //funcio
     ofstream database; 
     static bool inicio=true;
     static string año;
+    static bool vacio=true;
    database.open("clean.txt", ios::app); 
     if (database.fail()){ 
-        cout<<"no se pudo abrir el archivo se va crear uno nuevo";
-         database.open("clean.txt",ios::app);
+        cout<<"OCURRIO UN ERROR INESPERADO BORRE EL ARCHIVO clean.txt POR SEGURIDAD Y EJECUTE EL PROGRAMA DE NUEVO"<<endl;
+    }
+    if(vacio==true){
+        if(vacios()==true){
+            database<<"año,"<<"noticiero,"<<"URL,"<<"letras,palabras,oraciones"<<endl;
+            vacio=false;
+        }
+        else{
+            vacio=false;
+        }
     }
     if(inicio==true){
-            database<<"año,"<<"noticiero,"<<"URL,"<<"letras,palabras,oraciones"<<endl;
             año=texto;
             inicio=false;
         }
@@ -155,4 +163,14 @@ bool idfechas(const string & texto,int index){
         return isdigit(texto[index - 1]) && texto[index] == '.' && isdigit(texto[index + 1]);
     }
     return false;
+}
+
+bool vacios(void){
+        ifstream archivo("clean.txt");
+    if(archivo.peek() == std::ifstream::traits_type::eof()){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

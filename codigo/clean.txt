@@ -1,0 +1,5 @@
+año,noticiero,URL,letras,palabras,oraciones
+2005,youtube,https://www.youtube.com/,1437,312,9
+2005,eldeber,https://eldeber.com.bo/santa-cruz/analizan-volver-a-clases-virtuales-en-santa-cruz-por-mala-calidad-del-aire_383767,2200,464,10
+2005,youtube,https://www.youtube.com/,1437,312,9
+2005,eldeber,https://eldeber.com.bo/santa-cruz/analizan-volver-a-clases-virtuales-en-santa-cruz-por-mala-calidad-del-aire_383767,2200,464,10
